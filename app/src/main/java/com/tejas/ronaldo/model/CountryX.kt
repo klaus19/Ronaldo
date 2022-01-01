@@ -1,6 +1,6 @@
-package com.tejas.ronaldo.retrofit
+package com.tejas.ronaldo.model
 
-data class Country(
+data class CountryX(
     val country_id: String,
     val probability: Double
 )

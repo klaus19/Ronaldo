@@ -5,7 +5,10 @@ import com.tejas.ronaldo.model.Country
 
 class Repository {
 
-    suspend fun getNationality(): Country{
-       return RetrofitInstance.api.getNationality()
+
+
+    suspend fun getNationality2(names:String):Country{
+
+        return RetrofitInstance.api.getNationality2(names)
     }
 }

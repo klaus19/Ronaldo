@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding:ActivityMainBinding
     private lateinit var viewModel: MainViewModel
-    private val TAG:String = "Main"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +27,19 @@ class MainActivity : AppCompatActivity() {
         val viewModelFactory = MainViewModelFactory(respository)
 
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
-        viewModel.getNationality()
-        viewModel.myResponse.observe(this, Observer {
+      //  viewModel.getNationality()
 
-            Log.d(TAG, it.country.toString())
 
-        })
+        binding.btnPress.setOnClickListener {
+            val my:String = binding.editName.text.toString()
+          viewModel.getNationality2(my)
 
+            viewModel.myResponse2.observe(this, Observer {
+
+                binding.textName.text = it.country.toString()
+
+            })
+        }
 
     }
 }

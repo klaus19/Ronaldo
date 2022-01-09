@@ -9,13 +9,15 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: Repository): ViewModel() {
 
-    val myResponse:MutableLiveData<Country> = MutableLiveData()
+   // val myResponse:MutableLiveData<Country> = MutableLiveData()
+    val myResponse2:MutableLiveData<Country> = MutableLiveData()
 
-    fun getNationality(){
+
+
+  fun getNationality2(names:String){
         viewModelScope.launch {
-            val response = repository.getNationality()
-            myResponse.value = response
-
+            val response = repository.getNationality2(names)
+            myResponse2.value = response
         }
     }
 
